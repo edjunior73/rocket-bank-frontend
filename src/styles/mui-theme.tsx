@@ -241,6 +241,29 @@ const materialBaseTheme = (theme: Theme): ThemeOptions => ({
         }
       }
     },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          boxShadow: 'unset'
+        },
+        elevation7: {
+          boxShadow: theme.shadow.first,
+          backgroundColor: theme.background.light
+        },
+        elevation8: {
+          boxShadow: theme.shadow.second
+        },
+        elevation9: {
+          boxShadow: '0 5px 15px 0 rgba(68, 68, 79, 0.1)'
+        },
+        rounded: {
+          borderRadius: 6
+        },
+        outlined: {
+          border: `1px solid ${theme.border}`
+        }
+      }
+    },
     MuiDrawer: {
       styleOverrides: {
         paper: {
