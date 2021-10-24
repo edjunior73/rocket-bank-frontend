@@ -7,12 +7,12 @@ import { materialTheme } from './mui-theme'
 import { theme } from './sc-theme'
 
 export const ThemeProvider: React.FC = ({ children }) => (
-	<StyledEngineProvider injectFirst>
-		<MuiThemeProvider theme={materialTheme}>
-			<StyledThemeProvider theme={theme}>
-				<GlobalStyles />
-				{children}
-			</StyledThemeProvider>
-		</MuiThemeProvider>
-	</StyledEngineProvider>
+  <StyledEngineProvider injectFirst>
+    <MuiThemeProvider theme={materialTheme}>
+      <StyledThemeProvider theme={theme}>
+        <GlobalStyles />
+        {children}
+      </StyledThemeProvider>
+    </MuiThemeProvider>
+  </StyledEngineProvider>
 )

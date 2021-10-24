@@ -6,13 +6,13 @@ import 'izitoast/dist/css/iziToast.min.css'
 import { ThemeProvider } from 'styles'
 
 iziToast.settings({
-	position: 'bottomLeft',
-	maxWidth: 400
+  position: 'bottomLeft',
+  maxWidth: 400
 })
 
 const App = () => {
-	const routes = useRoutes(mainRoutes)
-	return <ThemeProvider>{routes}</ThemeProvider>
+  const routes = useRoutes(mainRoutes)
+  return <ThemeProvider>{routes}</ThemeProvider>
 }
 
 export default App
