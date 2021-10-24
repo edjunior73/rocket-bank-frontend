@@ -8,7 +8,7 @@ export const theme = {
     alternative: '#F49F0E'
   },
   background: {
-    main: '#F4F9FD',
+    main: '#F8F9FE',
     disabled: '#EFEFEF',
     light: '#FFF',
     calm: '#F9FAFF',
