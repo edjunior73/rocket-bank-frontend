@@ -19,11 +19,13 @@ export interface UserRowProps {
      */
     state: string
   }
+  onEdit: () => void
+  onDelete: () => void
 }
 
-export const UserRow = ({ user }: UserRowProps) => {
-  const birthday = upperFirst(format(user.birthday, 'MMM dd, yyyy', { locale: ptBR }))
-  const age = differenceInYears(Date.now(), user.birthday)
+export const UserRow = ({ user, onEdit, onDelete }: UserRowProps) => {
+  const birthday = upperFirst(format(new Date(user.birthday), 'MMM dd, yyyy', { locale: ptBR }))
+  const age = differenceInYears(Date.now(), new Date(user.birthday))
   return (
     <S.Container>
       <Grid container spacing={2} columns={24}>
@@ -36,14 +38,14 @@ export const UserRow = ({ user }: UserRowProps) => {
         <Grid item xs={24} md container justifyContent={{ lg: 'flex-end', xs: 'center' }} spacing={3}>
           <Grid item>
             <Tooltip title="Editar" placement="top" arrow>
-              <S.EditButton>
+              <S.EditButton onClick={onEdit}>
                 <S.EditIcon />
               </S.EditButton>
             </Tooltip>
           </Grid>
           <Grid item>
             <Tooltip title="Deletar" placement="top" arrow>
-              <S.DeleteButton>
+              <S.DeleteButton onClick={onDelete}>
                 <S.DeleteIcon />
               </S.DeleteButton>
             </Tooltip>
