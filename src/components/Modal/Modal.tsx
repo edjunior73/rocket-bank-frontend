@@ -288,5 +288,3 @@ export const Modal = ({
     </Dialog>
   )
 }
-
-export default Modal
