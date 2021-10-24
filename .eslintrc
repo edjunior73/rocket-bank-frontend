@@ -93,6 +93,7 @@
         "children": true
       }
     ],
+
     "react/jsx-props-no-spreading": "off",
     "react/prop-types": "off",
     "react/jsx-key": ["warn"],
@@ -103,6 +104,20 @@
     "import/prefer-default-export": "off",
     "import/no-unresolved": "error",
     "import/extensions": ["error", "never"],
+    "import/order": [
+      "error",
+      {
+        "groups": [["builtin", "external", "internal"]],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["builtin"]
+      }
+    ],
     "@typescript-eslint/semi": ["error", "never"],
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
