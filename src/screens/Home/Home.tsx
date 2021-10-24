@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react'
-import { Button, Grid, Typography, useMediaQuery } from '@mui/material'
+import { Button, Grid, Theme, Typography, useMediaQuery } from '@mui/material'
 import { matchSorter } from 'match-sorter'
 import { compareAsc } from 'date-fns'
 import { SearchInput } from 'components/SearchInput'
@@ -10,7 +10,7 @@ import * as S from './Home.style'
 export interface HomeProps {}
 
 export const Home = (props: HomeProps) => {
-  const smDown = useMediaQuery('(max-width: 600px)')
+  const mdDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'))
   const [search, setSearch] = useState('')
   const filteredUsers = useMemo(() => {
     return matchSorter(usersMock, search, {
@@ -43,7 +43,7 @@ export const Home = (props: HomeProps) => {
               <SearchInput placeholder="Pesquisar..." onChange={handleChangeSearch} value={search} />
             </Grid>
             <Grid item container justifyContent="flex-end" xs={12} md={4}>
-              <Button fullWidth={smDown} startIcon={<S.PlusIcon />}>
+              <Button fullWidth={mdDown} startIcon={<S.PlusIcon />}>
                 Criar usuário
               </Button>
             </Grid>
