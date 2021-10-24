@@ -296,6 +296,21 @@ const materialBaseTheme = (theme: Theme): ThemeOptions => ({
         }
       }
     },
+    MuiTooltip: {
+      styleOverrides: {
+        tooltip: {
+          backgroundColor: theme.colors.darker,
+          color: theme.text.light,
+          fontSize: pxToRem(12),
+          padding: 10,
+          borderRadius: 8,
+          width: 'auto'
+        },
+        arrow: {
+          color: theme.colors.darker
+        }
+      }
+    },
     MuiTab: {
       styleOverrides: {
         root: {
