@@ -44,7 +44,7 @@ export const theme = {
   },
   button: {
     background: '#0e63f4',
-    hover: '#3c82eb',
+    hover: '#4680d7',
     color: 'white'
   },
   input: {
