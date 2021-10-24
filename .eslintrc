@@ -113,6 +113,11 @@
             "pattern": "react",
             "group": "external",
             "position": "before"
+          },
+          {
+            "pattern": "styled-components",
+            "group": "external",
+            "position": "before"
           }
         ],
         "pathGroupsExcludedImportTypes": ["builtin"]
