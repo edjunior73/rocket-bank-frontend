@@ -2,7 +2,7 @@ import 'styled-components'
 
 export const theme = {
   colors: {
-    primary: '#0e63f4',
+    primary: '#3F8CFF',
     secondary: '#4362BA',
     darker: '#1D2B4E',
     alternative: '#F49F0E'
@@ -18,7 +18,7 @@ export const theme = {
   },
   text: {
     main: '#1D2B4E',
-    description: '#656A80',
+    description: '#7D8592',
     link: '#4a90e2',
     light: '#fff'
   },
@@ -44,7 +44,7 @@ export const theme = {
   },
   button: {
     background: '#0e63f4',
-    hover: '#0947b3',
+    hover: '#3c82eb',
     color: 'white'
   },
   input: {

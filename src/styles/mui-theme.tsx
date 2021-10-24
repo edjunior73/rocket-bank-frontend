@@ -93,17 +93,23 @@ const materialBaseTheme = (theme: Theme): ThemeOptions => ({
   components: {
     MuiButton: {
       defaultProps: {
-        disableElevation: true
+        disableElevation: true,
+        variant: 'contained'
       },
       styleOverrides: {
         root: {
           textTransform: 'capitalize',
           fontSize: pxToRem(14),
-          borderRadius: '25px',
-          fontWeight: 600
+          borderRadius: '14px',
+          fontWeight: 'bold',
+          transition: 'all 0.2s linear'
         },
         contained: {
-          padding: '8px 30px'
+          padding: '13px 30px',
+          boxShadow: '0px 6px 12px rgba(63, 140, 255, 0.263686)',
+          '&:hover': {
+            backgroundColor: theme.button.hover
+          }
         },
         containedSizeSmall: {
           padding: '6px 10px'
@@ -190,7 +196,25 @@ const materialBaseTheme = (theme: Theme): ThemeOptions => ({
         input: {
           padding: '14px 16px 15px',
           '&::placeholder': {
-            color: theme.grey.main
+            color: theme.text.description
+          }
+        }
+      }
+    },
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          '&.Mui-disabled': {
+            WebkitTextFillColor: null
+          }
+        },
+        multiline: {
+          height: 'auto !important'
+        },
+        input: {
+          '&::placeholder': {
+            color: theme.text.description,
+            opacity: 0.7
           }
         }
       }
