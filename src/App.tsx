@@ -1,5 +1,8 @@
 import React from 'react'
 import iziToast from 'izitoast'
+import LocalizationProvider from '@mui/lab/LocalizationProvider'
+import DateFnsUtils from '@mui/lab/AdapterDateFns'
+import { ptBR } from 'date-fns/locale'
 import { useRoutes } from 'react-router-dom'
 import mainRoutes from 'routes'
 import 'izitoast/dist/css/iziToast.min.css'
@@ -12,7 +15,11 @@ iziToast.settings({
 
 const App = () => {
   const routes = useRoutes(mainRoutes)
-  return <ThemeProvider>{routes}</ThemeProvider>
+  return (
+    <LocalizationProvider locale={ptBR} dateAdapter={DateFnsUtils}>
+      <ThemeProvider>{routes}</ThemeProvider>
+    </LocalizationProvider>
+  )
 }
 
 export default App
