@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useState, useMemo } from 'react'
 import { Button, Grid, Typography, useMediaQuery } from '@mui/material'
+import { matchSorter } from 'match-sorter'
+import { compareAsc } from 'date-fns'
 import { SearchInput } from 'components/SearchInput'
 import { UserRow } from 'components/UserRow'
 import { usersMock } from 'constants/users.mock'
@@ -9,6 +11,19 @@ export interface HomeProps {}
 
 export const Home = (props: HomeProps) => {
   const smDown = useMediaQuery('(max-width: 600px)')
+  const [search, setSearch] = useState('')
+  const filteredUsers = useMemo(() => {
+    return matchSorter(usersMock, search, {
+      keys: ['name'],
+      sorter: rankedItems =>
+        [...rankedItems].sort((a, b) => compareAsc(a.item.birthday, b.item.birthday))
+    })
+  }, [search])
+
+  const handleChangeSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value)
+  }
+
   return (
     <S.Container>
       <Grid container spacing={6}>
@@ -25,7 +40,7 @@ export const Home = (props: HomeProps) => {
           </Grid>
           <Grid item container spacing={3} justifyContent="space-between">
             <Grid item xs={12} md={6}>
-              <SearchInput placeholder="Pesquisar..." />
+              <SearchInput placeholder="Pesquisar..." onChange={handleChangeSearch} value={search} />
             </Grid>
             <Grid item container justifyContent="flex-end" xs={12} md={4}>
               <Button fullWidth={smDown} startIcon={<S.PlusIcon />}>
@@ -35,7 +50,7 @@ export const Home = (props: HomeProps) => {
           </Grid>
         </Grid>
         <Grid item container spacing={3}>
-          {usersMock.map(user => (
+          {filteredUsers.map(user => (
             <Grid item key={user.id} xs={12}>
               <UserRow user={user} />
             </Grid>
