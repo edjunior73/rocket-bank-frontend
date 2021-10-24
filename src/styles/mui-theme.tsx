@@ -238,6 +238,50 @@ const materialBaseTheme = (theme: Theme): ThemeOptions => ({
         }
       }
     },
+    MuiDialogTitle: {
+      styleOverrides: {
+        root: {
+          padding: '24px 24px 8px'
+        }
+      }
+    },
+    MuiDialogContent: {
+      styleOverrides: {
+        root: {
+          padding: '24px',
+          overflowY: undefined
+        }
+      }
+    },
+    MuiDialogActions: {
+      styleOverrides: {
+        root: {
+          padding: '24px',
+          paddingTop: '16px'
+        }
+      }
+    },
+    MuiDialog: {
+      defaultProps: {
+        fullWidth: true
+      },
+      styleOverrides: {
+        paper: {
+          borderRadius: '12px'
+        },
+        paperScrollBody: {
+          '& .MuiDialogContent-root': {
+            overflowY: 'hidden'
+          }
+        },
+        paperWidthMd: {
+          maxWidth: '700px'
+        },
+        paperWidthXs: {
+          maxWidth: '500px'
+        }
+      }
+    },
     MuiDivider: {
       styleOverrides: {
         root: {
