@@ -51,6 +51,7 @@ const materialBaseTheme = (theme: Theme): ThemeOptions => ({
     divider: theme.border.darker
   },
   typography: {
+    fontFamily: `'Nunito Sans',"Helvetica","Arial",sans-serif`,
     display1: {
       fontSize: pxToRem(40),
       fontWeight: 700
@@ -99,17 +100,33 @@ const materialBaseTheme = (theme: Theme): ThemeOptions => ({
       styleOverrides: {
         root: {
           textTransform: 'capitalize',
-          fontSize: pxToRem(14),
+          fontSize: pxToRem(16),
           borderRadius: '14px',
           fontWeight: 'bold',
           transition: 'all 0.2s linear'
         },
         contained: {
-          padding: '13px 30px',
           boxShadow: '0px 6px 12px rgba(63, 140, 255, 0.263686)',
           '&:hover': {
             backgroundColor: theme.button.hover
           }
+        },
+        containedSecondary: {
+          backgroundColor: theme.grey.fourth,
+          color: theme.text.main,
+          boxShadow: 'none',
+          '&:hover': {
+            backgroundColor: alpha(theme.grey.fourth, 0.8)
+          },
+          '&:active': {
+            backgroundColor: alpha(theme.grey.fourth, 0.6)
+          }
+        },
+        containedSizeMedium: {
+          padding: '12px 20px'
+        },
+        containedSizeLarge: {
+          padding: '13px 30px'
         },
         containedSizeSmall: {
           padding: '6px 10px'
@@ -182,6 +199,27 @@ const materialBaseTheme = (theme: Theme): ThemeOptions => ({
         }
       }
     },
+    MuiInputLabel: {
+      defaultProps: {
+        shrink: true
+      },
+      styleOverrides: {
+        root: {
+          fontSize: pxToRem(14),
+          fontWeight: 700,
+          color: theme.text.description
+        },
+        shrink: {
+          marginBottom: 8,
+          position: 'initial',
+          transform: 'unset',
+          transformOrigin: 'unset'
+        },
+        asterisk: {
+          color: theme.tags.red
+        }
+      }
+    },
     MuiInput: {
       defaultProps: {
         disableUnderline: true
@@ -189,16 +227,41 @@ const materialBaseTheme = (theme: Theme): ThemeOptions => ({
       styleOverrides: {
         root: {
           borderRadius: 6,
-          border: `1px solid ${theme.border.thin}`,
+          border: '1px solid',
+          borderColor: theme.border.thin,
           fontSize: pxToRem(14),
-          marginTop: '0 !important'
+          marginTop: '0 !important',
+          '&.Mui-focused': {
+            borderColor: theme.colors.primary
+          },
+          '&.Mui-error': {
+            borderColor: theme.tags.red
+          },
+          '&.Mui-disabled': {
+            borderColor: theme.border.thin,
+            backgroundColor: alpha(theme.grey.fourth, 0.5),
+            color: theme.grey.main
+          },
+          '& .MuiIconButton-root.MuiIconButton-edgeEnd': {
+            marginRight: 0,
+            marginLeft: -4
+          }
         },
         input: {
-          padding: '14px 16px 15px',
+          padding: '10px 15px',
+          height: 'unset',
+          minHeight: 'unset',
           '&::placeholder': {
+            fontSize: pxToRem(12),
             color: theme.text.description
           }
         }
+      }
+    },
+    MuiTextField: {
+      defaultProps: {
+        fullWidth: true,
+        variant: 'standard'
       }
     },
     MuiInputBase: {
@@ -241,7 +304,7 @@ const materialBaseTheme = (theme: Theme): ThemeOptions => ({
     MuiDialogTitle: {
       styleOverrides: {
         root: {
-          padding: '24px 24px 8px'
+          padding: '24px 24px 30px'
         }
       }
     },
@@ -257,7 +320,10 @@ const materialBaseTheme = (theme: Theme): ThemeOptions => ({
       styleOverrides: {
         root: {
           padding: '24px',
-          paddingTop: '16px'
+          paddingTop: '16px',
+          '& > :not(:first-of-type)': {
+            marginLeft: 24
+          }
         }
       }
     },
@@ -267,7 +333,9 @@ const materialBaseTheme = (theme: Theme): ThemeOptions => ({
       },
       styleOverrides: {
         paper: {
-          borderRadius: '12px'
+          borderRadius: 24,
+          padding: '16px 24px',
+          boxShadow: '0px 6px 58px rgba(121, 145, 173, 0.195504)'
         },
         paperScrollBody: {
           '& .MuiDialogContent-root': {
