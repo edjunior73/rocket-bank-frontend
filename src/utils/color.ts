@@ -1,11 +1,7 @@
-/* eslint-disable indent */
-import styled, { css, DefaultTheme } from 'styled-components'
-import { alpha, hexToRgb, hslToRgb } from '@mui/material/styles'
+import type { DefaultTheme } from 'styled-components'
 import { Theme } from 'styles'
 
 export type Colors = keyof Theme['tags'] | 'primary' | 'secondary'
-
-const notLabelColors: Colors[] = ['primary', 'secondary']
 
 export const getColor = (color: Colors, theme: DefaultTheme) => {
   switch (color) {
