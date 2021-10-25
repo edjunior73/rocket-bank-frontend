@@ -25,8 +25,8 @@ export const theme = {
   grey: {
     main: '#918C9B',
     secondary: '#B5BED2',
-    third: '#DEDEDE',
-    fourth: '#EFEFEF',
+    third: '#F4F9FD',
+    fourth: '#E6EDF5',
     fifth: '#3c4043',
     darker: '#666b7f'
   },
@@ -38,7 +38,7 @@ export const theme = {
     green: '#00C48C'
   },
   border: {
-    thin: '#E9ECEE',
+    thin: '#D8E0F0',
     darker: '#E2E2EA',
     colored: '#F49F0E'
   },
