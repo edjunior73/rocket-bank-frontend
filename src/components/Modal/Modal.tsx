@@ -1,22 +1,20 @@
 /* eslint-disable indent */
 import React from 'react'
+import { useTheme } from 'styled-components'
 import {
   Button,
   ButtonProps,
   Dialog,
   DialogProps,
-  BackdropProps,
   DialogActions,
   DialogContent,
   DialogContentText,
   DialogTitle,
   Typography,
-  Box,
-  IconButton
+  Box
 } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close'
 import { LoadingButton, LoadingButtonProps } from '@mui/lab'
-import { useTheme } from 'styled-components'
 import { Colors } from 'utils'
 import * as S from './Modal.style'
 
@@ -151,7 +149,7 @@ export const Modal = ({
   children,
   customOnCancel = false,
   customOnOk = false,
-  showCloseButton = false,
+  showCloseButton = true,
   okLoading,
   buttonProps,
   maxWidth = 'sm',
@@ -181,7 +179,7 @@ export const Modal = ({
             }}
           >
             {size === 'big' ? (
-              <Typography variant="h3" fontWeight={500}>
+              <Typography variant="h1" fontWeight="bold">
                 {title}
               </Typography>
             ) : (
@@ -190,9 +188,9 @@ export const Modal = ({
               </Typography>
             )}
             {showCloseButton && (
-              <IconButton size="small" onClick={onClose}>
+              <S.CloseButton onClick={onClose}>
                 <CloseIcon />
-              </IconButton>
+              </S.CloseButton>
             )}
           </Box>
         </DialogTitle>
@@ -259,7 +257,7 @@ export const Modal = ({
                       }
                   : onClose
               }
-              pending={okLoading}
+              loading={okLoading}
               fullWidth
               variant="contained"
               {...buttonProps}

@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
-import { Paper, DialogContent } from '@mui/material'
-import { ModalProps } from './Modal'
+import { Paper, DialogContent, IconButton } from '@mui/material'
+import type { ModalProps } from './Modal'
 
 export const Wrapper = styled(Paper)`
   @media only screen and (max-width: 600px) {
@@ -40,4 +40,10 @@ export const ModalContent = styled(DialogContent).withConfig<ModalContentProps>(
         css`
           padding-top: 20px;
         `};
+`
+
+export const CloseButton = styled(IconButton)`
+  background-color: ${props => props.theme.grey.third};
+  border-radius: 14px;
+  color: ${props => props.theme.text.main};
 `
