@@ -4,7 +4,7 @@ export const pxToRem = (px: number): string => `${px / 16}rem`
 
 export const GlobalStyles = createGlobalStyle`
 	html {
-		font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+		font-family: "Nunito Sans", "Helvetica", "Arial", sans-serif;
 		box-sizing: border-box;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
@@ -21,7 +21,7 @@ export const GlobalStyles = createGlobalStyle`
 	body {
 		color: ${props => props.theme.text.main};
 		font-size: 0.875rem;
-	 	font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+	 	font-family: "Nunito Sans", "Helvetica", "Arial", sans-serif;
 		font-weight: 400;
 		line-height: 1.43;
 		overflow-x: hidden;
@@ -30,7 +30,7 @@ export const GlobalStyles = createGlobalStyle`
 	}
 
 	button {
-		font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+		font-family: "Nunito Sans", "Helvetica", "Arial", sans-serif;
 	}
 
 	body::backdrop {
