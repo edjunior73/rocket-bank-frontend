@@ -6,6 +6,7 @@ import * as S from './SearchInput.style'
 export type SearchInputProps = Omit<TextFieldProps, 'ref'>
 
 export const SearchInput = (props: SearchInputProps) => {
+  const { value, onChange } = props
   return (
     <S.Input
       InputProps={{
@@ -14,10 +15,10 @@ export const SearchInput = (props: SearchInputProps) => {
             <S.SearchIcon />
           </InputAdornment>
         ),
-        endAdornment: props?.value ? (
+        endAdornment: value ? (
           <IconButton
             onClick={() => {
-              props?.onChange?.({
+              onChange?.({
                 // @ts-ignore
                 target: { value: '' }
               })
