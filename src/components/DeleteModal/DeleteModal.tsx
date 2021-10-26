@@ -1,6 +1,7 @@
 import React from 'react'
 import { Typography, Grid } from '@mui/material'
 import { Modal, ModalProps } from '../Modal'
+import * as S from './DeleteModal.style'
 
 export interface DeleteModalProps extends Pick<ModalProps, 'open' | 'onClose'> {
   /**
@@ -55,6 +56,9 @@ export const DeleteModal = ({
       okText="Deletar"
       maxWidth="xs"
       title={title}
+      dialogProps={{
+        PaperComponent: S.Container
+      }}
     >
       <Grid container spacing={4}>
         <Grid item xs={12}>
