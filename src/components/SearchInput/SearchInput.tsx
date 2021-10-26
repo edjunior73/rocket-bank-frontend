@@ -1,19 +1,34 @@
 import React from 'react'
-import type { InputBaseProps } from '@mui/material'
+import { IconButton, InputAdornment, TextFieldProps } from '@mui/material'
+import ClearIcon from '@mui/icons-material/Clear'
 import * as S from './SearchInput.style'
 
-export interface SearchInputProps extends Omit<InputBaseProps, 'ref'> {
-  /**
-   * a prop to provide custom style on the parent container
-   */
-  containerStyle?: React.CSSProperties
-}
+export type SearchInputProps = Omit<TextFieldProps, 'ref'>
 
-export const SearchInput = React.forwardRef(({ containerStyle, ...props }: SearchInputProps, ref) => {
+export const SearchInput = (props: SearchInputProps) => {
   return (
-    <S.Container style={containerStyle}>
-      <S.SearchIcon />
-      <S.Input {...props} ref={ref} />
-    </S.Container>
+    <S.Input
+      InputProps={{
+        startAdornment: (
+          <InputAdornment position="start">
+            <S.SearchIcon />
+          </InputAdornment>
+        ),
+        endAdornment: props?.value ? (
+          <IconButton
+            onClick={() => {
+              props?.onChange?.({
+                // @ts-ignore
+                target: { value: '' }
+              })
+            }}
+            size="small"
+          >
+            <ClearIcon fontSize="small" />
+          </IconButton>
+        ) : null
+      }}
+      {...props}
+    />
   )
-})
+}
